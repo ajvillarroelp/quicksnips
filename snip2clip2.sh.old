@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#snipfile=$HOME/.quicksnips/snippets2.txt
+snipfile=$HOME/.quicksnips/snip2.cr
+keyfile=$HOME/.quicksnips/.key
+
+storedpass=`cat $keyfile | openssl enc -base64 -d`
+snip=$(openssl aes-256-cbc -d -in $snipfile -pass pass:$storedpass | sed -r '/^#|^\s*$/d' | sort | sed -n $1p | cut -d\; -f 2)
+if [[ $snip == "" ]];then
+	notify-send -i ${snipdir}/mp2.jpeg 'Snippet $1 is empty! check snippet file'
+	exit 1
+fi
+#snip=$( sed -r '/^#|^\s*$/d' "$snipfile" | sort | sed -n $1p | cut -d\; -f 2)
+printf '%s' "$snip" | xclip -i -selection clipboard 
+mplayer /usr/share/sounds/gnome/default/alerts/drip.ogg

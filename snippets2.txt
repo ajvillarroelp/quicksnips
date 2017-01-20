@@ -1,0 +1,9 @@
+# add your snippets here 
+# lines commented will not be parsed
+
+## 
+antonio_villarroel;antonio_villarroel
+email ADS;ajvillarroel.ads@gmail.com
+email Work;ajvillarroel.work@gmail.com
+pass iberia;kdjkjdkdj
+

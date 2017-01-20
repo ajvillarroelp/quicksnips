@@ -1,0 +1,1 @@
+/home/antonio/Dropbox/Apps/quicksnips/snip2.cr
